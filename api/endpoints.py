@@ -23,10 +23,10 @@ def get_count() -> Response:
     file_path: str = data.get('file_path')
 
     if not tag_name or not file_path:
-        return jsonify({'error': 'Параметры "tag_name" и "file_path" обязательны'}), 400
+        return jsonify({'Ошибка': 'Параметры "tag_name" и "file_path" обязательны'}), 400
 
     if not os.path.exists(file_path):
-        return jsonify({'error': f'Файл не найден: {file_path}'}), 404
+        return jsonify({'Ошибка': f'Файл не найден: {file_path}'}), 404
 
     handler = TagCounterHandler(tag_name)
     parser = xs.make_parser()
@@ -35,12 +35,12 @@ def get_count() -> Response:
     try:
         parser.parse(file_path)
     except FileNotFoundError:
-        return jsonify({'error': f'Файл не найден: {file_path}'}), 404
+        return jsonify({'Ошибка': f'Файл не найден: {file_path}'}), 404
     except Exception:
-        return jsonify({'error': 'Ошибка при разборе XML'}), 500
+        return jsonify({'Ошибка': 'Ошибка при разборе XML'}), 500
 
     if handler.count == 0:
-        return jsonify({'error': 'В файле отсутствует тег с данным названием'}), 404
+        return jsonify({'Ошибка': 'В файле отсутствует тег с данным названием'}), 404
 
     return jsonify({'tag': tag_name, 'count': handler.count})
 
