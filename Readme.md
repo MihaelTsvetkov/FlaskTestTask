@@ -19,8 +19,8 @@
 1. Клонируйте репозиторий:
 
 ```
-git clone <your_repo_url>
-cd your_project_folder
+git clone https://github.com/MihaelTsvetkov/FlaskTestTask.git
+cd FlaskTestTask
 ```
 
 2. Создайте и активируйте виртуальное окружение
@@ -33,7 +33,8 @@ source venv/bin/activate  # Linux/macOS
 
 3. Установите зависимости:
 
-```pip install -r requirements.txt
+```
+pip install -r requirements.txt
 ```
 
 4. Запустите проект:
@@ -59,7 +60,7 @@ file — XML-файл
 Параметры: JSON
 
 {
-  "file_path": "путь до файла",
+  "file_path": "путь до xml файла",
   "tag_name": "Tag"
 }
 ```
@@ -71,7 +72,7 @@ file — XML-файл
 Параметры: JSON
 
 {
-  "file_name": "data.xml",
+  "file_name": "название xml файла",
   "tag_name": "Attribute"
 }
 ```
