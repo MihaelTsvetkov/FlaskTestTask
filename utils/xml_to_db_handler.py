@@ -1,11 +1,11 @@
 import sqlite3
-import xml.sax
+import xml.sax as xs
 from typing import Optional
 from xml.sax.xmlreader import AttributesImpl
 from config import DB_PATH
 
 
-class XMLToDBHandler(xml.sax.ContentHandler):
+class XMLToDBHandler(xs.ContentHandler):
     def __init__(self, xml_filename: str) -> None:
         self.conn: sqlite3.Connection = sqlite3.connect(DB_PATH)
         self.cursor: sqlite3.Cursor = self.conn.cursor()
